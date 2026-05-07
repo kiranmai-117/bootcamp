@@ -1,6 +1,6 @@
 package com.tw.bootcamp.p1.entities;
 
-public class Rectangle {
+public class Rectangle implements Shape {
 
     private final int length;
     private final int breath;
@@ -10,10 +10,12 @@ public class Rectangle {
         this.breath = breath;
     }
 
+    @Override
     public int area() {
         return length * breath;
     }
 
+    @Override
     public int perimeter() {
         return 2 * (length + breath);
     }
