@@ -11,4 +11,11 @@ public class CoinTest {
 
         assertEquals(0.5, probabilityOfTails);
     }
+
+    @Test
+    void shouldReturnProbabilityOfGettingHead() {
+        double probabilityOfHeads = Coin.getProbabilityOfHead();
+
+        assertEquals(0.5, probabilityOfHeads);
+    }
 }
