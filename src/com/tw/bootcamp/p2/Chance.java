@@ -24,4 +24,9 @@ public class Chance {
     public int hashCode() {
         return Objects.hashCode(value);
     }
+
+    public Chance and(Chance other) {
+        double newValue = this.value * other.value;
+        return new Chance(newValue);
+    }
 }

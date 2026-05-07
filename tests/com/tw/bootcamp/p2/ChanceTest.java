@@ -19,8 +19,29 @@ public class ChanceTest {
 
     @Test
     void shouldRepresentTheChanceOfGettingTailsForTwoCoins() {
-        Chance chanceOfGettingTails = new Chance(0.75);
-        assertEquals(new Chance(0.75), chanceOfGettingTails);
+        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfOtherCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfOtherCoin);
+        assertEquals(new Chance(0.25), chanceOfGettingTailsForTwoCoins);
+    }
+
+    @Test
+    void shouldRepresentTheChanceOfGettingAtLeastOneTailsForTwoCoins() {
+        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfOtherCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfOtherCoin);
+        assertEquals(new Chance(0.75), chanceOfGettingTailsForTwoCoins.complement());
+    }
+
+    @Test
+    void shouldRepresentTheChanceOfGettingAtLeastOneTailsForThreeCoins() {
+        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfSecondCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfThirdCoin = new Chance(0.5);
+
+        Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfSecondCoin);
+        Chance chanceOfGettingTailsForThreeCoins = chanceOfGettingTailsForTwoCoins.and(chanceOfGettingTailsOfThirdCoin);
+        assertEquals(new Chance(0.875), chanceOfGettingTailsForThreeCoins.complement());
     }
 
     @Test
