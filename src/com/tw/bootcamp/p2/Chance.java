@@ -9,6 +9,10 @@ public class Chance {
         this.value = value;
     }
 
+    public Chance complement() {
+        return new Chance(1 - value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

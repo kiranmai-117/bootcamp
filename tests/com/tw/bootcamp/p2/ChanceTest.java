@@ -9,4 +9,11 @@ public class ChanceTest {
     void shouldRepresentTheChanceOfGettingTailForOneCoin() {
         assertEquals(new Chance(0.5), new Chance(0.5));
     }
+
+    @Test
+    void shouldRepresentTheChanceOfNotGettingTailForOneCoin() {
+        Chance chanceOfGettingTails = new Chance(0.5);
+        Chance chanceOfGettingHeads = chanceOfGettingTails.complement();
+        assertEquals(new Chance(0.5), chanceOfGettingHeads);
+    }
 }
