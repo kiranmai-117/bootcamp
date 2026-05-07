@@ -38,7 +38,6 @@ public class Chance {
     }
 
     public Chance or(Chance other) {
-        double newValue = this.value + other.value - this.value * other.value;
-        return create(newValue);
+        return (complement().and(other.complement())).complement();
     }
 }

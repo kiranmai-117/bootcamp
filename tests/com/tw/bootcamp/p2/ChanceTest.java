@@ -40,9 +40,9 @@ public class ChanceTest {
         Chance chanceOfGettingTailsOfSecondCoin = Chance.create(0.5);
         Chance chanceOfGettingTailsOfThirdCoin = Chance.create(0.5);
 
-        Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.or(chanceOfGettingTailsOfSecondCoin);
-        Chance chanceOfGettingTailsForThreeCoins = chanceOfGettingTailsForTwoCoins.or(chanceOfGettingTailsOfThirdCoin);
-        assertEquals(Chance.create(0.875), chanceOfGettingTailsForThreeCoins);
+        Chance chanceOfGettingAtLeastTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.or(chanceOfGettingTailsOfSecondCoin);
+        Chance chanceOfGettingAtLeastTailsForThreeCoins = chanceOfGettingAtLeastTailsForTwoCoins.or(chanceOfGettingTailsOfThirdCoin);
+        assertEquals(Chance.create(0.875), chanceOfGettingAtLeastTailsForThreeCoins);
     }
 
     @Test
