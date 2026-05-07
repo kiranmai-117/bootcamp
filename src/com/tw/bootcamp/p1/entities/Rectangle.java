@@ -13,4 +13,8 @@ public class Rectangle {
     public int area() {
         return length * breath;
     }
+
+    public int perimeter() {
+        return 2 * (length + breath);
+    }
 }

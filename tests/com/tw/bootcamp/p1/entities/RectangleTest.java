@@ -13,4 +13,12 @@ public class RectangleTest {
         int area = rect.area();
         assertEquals(25, area);
     }
+
+    @Test
+    void shouldGivePerimeter() {
+        Rectangle rect = new Rectangle(5, 5);
+        int perimeter = rect.perimeter();
+
+        assertEquals(20, perimeter);
+    }
 }
