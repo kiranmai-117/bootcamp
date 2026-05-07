@@ -6,8 +6,6 @@ import com.tw.bootcamp.p1.entities.Subject;
 
 public class Main {
     static void main() {
-        Subject subject = new Subject("math");
-        new Student(subject);
-
+        new Student(1, Subject.MATH);
     }
 }

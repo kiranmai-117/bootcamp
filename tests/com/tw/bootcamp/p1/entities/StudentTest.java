@@ -10,12 +10,12 @@ class StudentTest {
 
     @BeforeEach
     void setUp() {
-        student = new Student(new Subject("math"));
+        student = new Student(1, Subject.MATH);
     }
 
     @Test
     void shouldBeEqualIfTwoInstancesAreSame() {
-        Student anotherStudent = new Student(new Subject("math"));
+        Student anotherStudent = new Student(1, Subject.MATH);
 
         assertEquals(student, anotherStudent);
     }
