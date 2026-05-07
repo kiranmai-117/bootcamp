@@ -16,4 +16,16 @@ public class ChanceTest {
         Chance chanceOfGettingHeads = chanceOfGettingTails.complement();
         assertEquals(new Chance(0.5), chanceOfGettingHeads);
     }
+
+    @Test
+    void shouldRepresentTheChanceOfGettingTailsForTwoCoins() {
+        Chance chanceOfGettingTails = new Chance(0.75);
+        assertEquals(new Chance(0.75), chanceOfGettingTails);
+    }
+
+    @Test
+    void shouldRepresentTheChanceOfGettingThreeOnADice() {
+        Chance chanceOfGettingThree = new Chance(0.167);
+        assertEquals(new Chance(0.167), chanceOfGettingThree);
+    }
 }
