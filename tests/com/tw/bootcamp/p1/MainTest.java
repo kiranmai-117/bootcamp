@@ -1,4 +1,4 @@
-package com.tw.problems.problem1;
+package com.tw.bootcamp.p1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
