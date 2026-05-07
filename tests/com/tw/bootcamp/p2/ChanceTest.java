@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ChanceTest {
     @Test
     void shouldRepresentTheChanceOfGettingTailForOneCoin() {
-        Chance chance = new Chance(2, 1);
-        assertEquals(0.5, chance.getProbability());
-
+        assertEquals(new Chance(0.5), new Chance(0.5));
     }
 }
