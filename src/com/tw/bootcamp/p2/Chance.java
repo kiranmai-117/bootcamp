@@ -5,12 +5,19 @@ import java.util.Objects;
 public class Chance {
     private final double value;
 
-    public Chance(double value) {
+    private Chance(double value) {
         this.value = value;
     }
 
+    public static Chance create(double value) {
+        if (value < 0 || value > 1) {
+            throw new IllegalArgumentException("Invalid Chance value");
+        }
+        return new Chance(value);
+    }
+
     public Chance complement() {
-        return new Chance(1 - value);
+        return create(1 - value);
     }
 
     @Override
@@ -27,6 +34,6 @@ public class Chance {
 
     public Chance and(Chance other) {
         double newValue = this.value * other.value;
-        return new Chance(newValue);
+        return create(newValue);
     }
 }

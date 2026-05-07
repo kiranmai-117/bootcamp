@@ -3,50 +3,56 @@ package com.tw.bootcamp.p2;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ChanceTest {
     @Test
     void shouldRepresentTheChanceOfGettingTailForOneCoin() {
-        assertEquals(new Chance(0.5), new Chance(0.5));
+        assertEquals(Chance.create(0.5), Chance.create(0.5));
     }
 
     @Test
     void shouldRepresentTheChanceOfNotGettingTailForOneCoin() {
-        Chance chanceOfGettingTails = new Chance(0.5);
+        Chance chanceOfGettingTails = Chance.create(0.5);
         Chance chanceOfGettingHeads = chanceOfGettingTails.complement();
-        assertEquals(new Chance(0.5), chanceOfGettingHeads);
+        assertEquals(Chance.create(0.5), chanceOfGettingHeads);
     }
 
     @Test
     void shouldRepresentTheChanceOfGettingTailsForTwoCoins() {
-        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
-        Chance chanceOfGettingTailsOfOtherCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfOneCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsOfOtherCoin = Chance.create(0.5);
         Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfOtherCoin);
-        assertEquals(new Chance(0.25), chanceOfGettingTailsForTwoCoins);
+        assertEquals(Chance.create(0.25), chanceOfGettingTailsForTwoCoins);
     }
 
     @Test
     void shouldRepresentTheChanceOfGettingAtLeastOneTailsForTwoCoins() {
-        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
-        Chance chanceOfGettingTailsOfOtherCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfOneCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsOfOtherCoin = Chance.create(0.5);
         Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfOtherCoin);
-        assertEquals(new Chance(0.75), chanceOfGettingTailsForTwoCoins.complement());
+        assertEquals(Chance.create(0.75), chanceOfGettingTailsForTwoCoins.complement());
     }
 
     @Test
     void shouldRepresentTheChanceOfGettingAtLeastOneTailsForThreeCoins() {
-        Chance chanceOfGettingTailsOfOneCoin = new Chance(0.5);
-        Chance chanceOfGettingTailsOfSecondCoin = new Chance(0.5);
-        Chance chanceOfGettingTailsOfThirdCoin = new Chance(0.5);
+        Chance chanceOfGettingTailsOfOneCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsOfSecondCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsOfThirdCoin = Chance.create(0.5);
 
         Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.and(chanceOfGettingTailsOfSecondCoin);
         Chance chanceOfGettingTailsForThreeCoins = chanceOfGettingTailsForTwoCoins.and(chanceOfGettingTailsOfThirdCoin);
-        assertEquals(new Chance(0.875), chanceOfGettingTailsForThreeCoins.complement());
+        assertEquals(Chance.create(0.875), chanceOfGettingTailsForThreeCoins.complement());
     }
 
     @Test
     void shouldRepresentTheChanceOfGettingThreeOnADice() {
-        Chance chanceOfGettingThree = new Chance(0.167);
-        assertEquals(new Chance(0.167), chanceOfGettingThree);
+        Chance chanceOfGettingThree = Chance.create(0.167);
+        assertEquals(Chance.create(0.167), chanceOfGettingThree);
+    }
+
+    @Test
+    void shouldThrowErrorForIllegalChanceValue() {
+        assertThrows(IllegalArgumentException.class, () -> Chance.create(-13));
     }
 }
