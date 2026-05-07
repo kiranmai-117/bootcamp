@@ -20,6 +20,15 @@ public class Chance {
         return create(1 - value);
     }
 
+    public Chance and(Chance other) {
+        double newValue = this.value * other.value;
+        return create(newValue);
+    }
+
+    public Chance or(Chance other) {
+        return (complement().and(other.complement())).complement();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -30,14 +39,5 @@ public class Chance {
     @Override
     public int hashCode() {
         return Objects.hashCode(value);
-    }
-
-    public Chance and(Chance other) {
-        double newValue = this.value * other.value;
-        return create(newValue);
-    }
-
-    public Chance or(Chance other) {
-        return (complement().and(other.complement())).complement();
     }
 }
