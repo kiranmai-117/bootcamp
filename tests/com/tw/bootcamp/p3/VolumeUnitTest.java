@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VolumeUnitTest {
     @Test
-    void shouldReturnConversionFactorForGallon() {
-        assertEquals(3.78, VolumeUnit.GALLON.conversionFactor);
+    void shouldReturnBaseConvertedValueForGallon() {
+        assertEquals(3.78, VolumeUnit.GALLON.covertToBase(1));
     }
 
     @Test
-    void shouldReturnConversionFactorForLiter() {
-        assertEquals(1, VolumeUnit.LITER.conversionFactor);
+    void shouldReturnBaseConvertedValueForLiter() {
+        assertEquals(1, VolumeUnit.LITER.covertToBase(1));
     }
 }

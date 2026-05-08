@@ -20,7 +20,7 @@ public class VolumeMeasurement {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         VolumeMeasurement that = (VolumeMeasurement) o;
-        return Double.compare(value * volumeUnit.conversionFactor, that.value * that.volumeUnit.conversionFactor) == 0;
+        return Double.compare(volumeUnit.covertToBase(value), that.volumeUnit.covertToBase(that.value)) == 0;
     }
 }
 

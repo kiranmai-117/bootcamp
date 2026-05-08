@@ -7,17 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LengthUnitTest {
 
     @Test
-    void shouldReturnConversionFactorForFeet() {
-        assertEquals(30, LengthUnit.FEET.conversionFactor);
+    void shouldReturnBaseConvertedValueForFeet() {
+        assertEquals(30, LengthUnit.FEET.covertToBase(1));
     }
 
     @Test
-    void shouldReturnConversionFactorForCentimeter() {
-        assertEquals(1, LengthUnit.CENTIMETER.conversionFactor);
+    void shouldReturnBaseConvertedValueForCentimeter() {
+        assertEquals(1, LengthUnit.CENTIMETER.covertToBase(1));
     }
 
     @Test
-    void shouldReturnConversionFactorForInch() {
-        assertEquals(2.5, LengthUnit.INCH.conversionFactor);
+    void shouldReturnBaseConvertedValueForInch() {
+        assertEquals(2.5, LengthUnit.INCH.covertToBase(1));
     }
 }

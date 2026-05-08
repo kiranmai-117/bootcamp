@@ -20,7 +20,7 @@ public class LengthMeasurement {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         LengthMeasurement that = (LengthMeasurement) o;
-        return Double.compare(value * lengthUnit.conversionFactor, that.value * that.lengthUnit.conversionFactor) == 0;
+        return Double.compare(lengthUnit.covertToBase(value), that.lengthUnit.covertToBase(that.value)) == 0;
     }
 
     public LengthMeasurement add(LengthMeasurement other) {
