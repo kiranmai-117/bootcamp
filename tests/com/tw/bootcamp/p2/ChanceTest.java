@@ -35,6 +35,14 @@ public class ChanceTest {
     }
 
     @Test
+    void shouldRepresentTheChanceOfGettingAtLeastOneTailsForTwoCoinsUsingDeMorganLaw() {
+        Chance chanceOfGettingTailsOfOneCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsOfOtherCoin = Chance.create(0.5);
+        Chance chanceOfGettingTailsForTwoCoins = chanceOfGettingTailsOfOneCoin.deMorganOr(chanceOfGettingTailsOfOtherCoin);
+        assertEquals(Chance.create(0.75), chanceOfGettingTailsForTwoCoins);
+    }
+
+    @Test
     void shouldRepresentTheChanceOfGettingAtLeastOneTailsForThreeCoins() {
         Chance chanceOfGettingTailsOfOneCoin = Chance.create(0.5);
         Chance chanceOfGettingTailsOfSecondCoin = Chance.create(0.5);

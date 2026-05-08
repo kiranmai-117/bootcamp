@@ -26,6 +26,10 @@ public class Chance {
     }
 
     public Chance or(Chance other) {
+        return create(value + other.value - value * other.value);
+    }
+
+    public Chance deMorganOr(Chance other) {
         return (complement().and(other.complement())).complement();
     }
 
