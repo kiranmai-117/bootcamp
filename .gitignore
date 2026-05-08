@@ -31,3 +31,7 @@ bin/
 out
 htmlReport
 lib
+src/com/tw/bootcamp/p3/Measurement.java
+src/com/tw/bootcamp/p3/Unit.java
+src/com/tw/bootcamp/p3/InCompatibleUnitException.java
+tests/com/tw/bootcamp/p3/MeasurementTest.java
