@@ -46,6 +46,22 @@ class MeasurementTest {
     }
 
     @Test
+    void shouldCompareLengthInCMAndMMAndReturnTrue() {
+        Measurement m1 = Measurement.create(1, Unit.CENTIMETER);
+        Measurement m2 = Measurement.create(10, Unit.MILLIMETER);
+        boolean isEqual = m2.isEqual(m1);
+        assertTrue(isEqual);
+    }
+
+    @Test
+    void shouldCompareLengthInCMAndMMAndReturnFalse() {
+        Measurement m1 = Measurement.create(1, Unit.CENTIMETER);
+        Measurement m2 = Measurement.create(6, Unit.MILLIMETER);
+        boolean isEqual = m2.isEqual(m1);
+        assertFalse(isEqual);
+    }
+
+    @Test
     void shouldThrowErrorForInvalidMeasurement() {
         assertThrows(InvalidMeasurementException.class, () -> Measurement.create(-12, Unit.INCH));
     }
