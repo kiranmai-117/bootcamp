@@ -1,18 +1,22 @@
 package com.tw.bootcamp.p4;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ParkingLot {
-    private final List<Boolean> lot;
-    private final int size;
+    private int emptySlots;
 
-    public ParkingLot(int size) {
-        this.size = size;
-        lot = new ArrayList<>();
+    public ParkingLot(int emptySlots) {
+        this.emptySlots = emptySlots;
     }
 
     public boolean park() {
-        return lot.add(true);
+        if (isFull()) {
+            return false;
+        }
+
+        emptySlots--;
+        return true;
+    }
+
+    public boolean isFull() {
+        return emptySlots <= 0;
     }
 }
