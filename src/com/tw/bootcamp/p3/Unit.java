@@ -1,15 +1,11 @@
 package com.tw.bootcamp.p3;
 
 public enum Unit {
-    FEET, INCH, CENTIMETER;
+    FEET(30), INCH(2.5), CENTIMETER(1);
 
-    public double getConversionFactor(Unit other) {
-        if (other == INCH && this == FEET) {
-            return 12;
-        } else if (other == CENTIMETER && this == INCH) {
-            return 2.5;
-        }
-        return 0;
+    public final double conversionFactor;
+
+    Unit(double conversionFactor) {
+        this.conversionFactor = conversionFactor;
     }
-
 }

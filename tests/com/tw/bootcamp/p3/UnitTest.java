@@ -7,9 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UnitTest {
 
     @Test
-    void shouldReturn12InchForOneFeet() {
-        Unit inch = Unit.INCH;
+    void shouldReturnConversionFactorForFeet() {
         Unit feet = Unit.FEET;
-        assertEquals(12, feet.getConversionFactor(inch));
+        assertEquals(30, feet.conversionFactor);
     }
 }

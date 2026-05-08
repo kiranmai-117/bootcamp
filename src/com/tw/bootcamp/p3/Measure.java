@@ -10,6 +10,6 @@ public class Measure {
     }
 
     public boolean isEqual(Measure other) {
-        return this.value * unit.getConversionFactor(other.unit) == other.value;
+        return this.value * unit.conversionFactor == other.value * other.unit.conversionFactor;
     }
 }
