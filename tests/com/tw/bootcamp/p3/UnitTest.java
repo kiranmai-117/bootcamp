@@ -2,14 +2,14 @@ package com.tw.bootcamp.p3;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UnitTest {
 
     @Test
-    void shouldReturnTrueForFeetToInchComparision() {
-        Unit inch = Unit.INCH.setValue(12);
-        Unit feet = Unit.FEET.setValue(1);
-        assertTrue(feet.isEqual(inch));
+    void shouldReturn12InchForOneFeet() {
+        Unit inch = Unit.INCH;
+        Unit feet = Unit.FEET;
+        assertEquals(12, feet.getConversionFactor(inch));
     }
 }
