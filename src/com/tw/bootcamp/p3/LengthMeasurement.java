@@ -24,6 +24,6 @@ public class LengthMeasurement {
     }
 
     public LengthMeasurement add(LengthMeasurement other) {
-        return create(value + other.value, lengthUnit);
+        return create(lengthUnit.covertToBase(value) + other.lengthUnit.covertToBase(other.value), LengthUnit.INCH);
     }
 }

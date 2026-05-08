@@ -8,16 +8,22 @@ public class LengthUnitTest {
 
     @Test
     void shouldReturnBaseConvertedValueForFeet() {
-        assertEquals(30, LengthUnit.FEET.covertToBase(1));
+        assertEquals(12, LengthUnit.FEET.covertToBase(1));
     }
 
     @Test
     void shouldReturnBaseConvertedValueForCentimeter() {
-        assertEquals(1, LengthUnit.CENTIMETER.covertToBase(1));
+        assertEquals(0.4, LengthUnit.CENTIMETER.covertToBase(1));
+    }
+
+    @Test
+    void shouldReturnBaseConvertedValueForMillimeter() {
+        assertEquals(0.04, LengthUnit.MILLIMETER.covertToBase(1));
     }
 
     @Test
     void shouldReturnBaseConvertedValueForInch() {
-        assertEquals(2.5, LengthUnit.INCH.covertToBase(1));
+        assertEquals(1, LengthUnit.INCH.covertToBase(1));
     }
+
 }

@@ -1,7 +1,7 @@
 package com.tw.bootcamp.p3;
 
 public enum LengthUnit {
-    FEET(30), INCH(2.5), CENTIMETER(1), MILLIMETER(0.1);
+    FEET(12), INCH(1), CENTIMETER(0.4), MILLIMETER(0.04);
 
     private final double conversionFactor;
 
