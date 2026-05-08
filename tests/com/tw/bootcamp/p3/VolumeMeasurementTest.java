@@ -21,6 +21,13 @@ public class VolumeMeasurementTest {
     }
 
     @Test
+    void shouldAddTwoVolumesOfDifferentUnitAndReturnInLiter() {
+        VolumeMeasurement m1 = VolumeMeasurement.create(1, VolumeUnit.LITER);
+        VolumeMeasurement m2 = VolumeMeasurement.create(1, VolumeUnit.GALLON);
+        assertEquals(VolumeMeasurement.create(4.78, VolumeUnit.LITER), m1.add(m2));
+    }
+
+    @Test
     void shouldThrowErrorForInvalidMeasurement() {
         assertThrows(InvalidMeasurementException.class, () -> VolumeMeasurement.create(-12, VolumeUnit.GALLON));
     }
