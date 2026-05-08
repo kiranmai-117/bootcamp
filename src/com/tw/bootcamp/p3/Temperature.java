@@ -22,8 +22,4 @@ public class Temperature {
         Temperature that = (Temperature) o;
         return Math.abs(temperatureUnit.covertToBase(value) - that.temperatureUnit.covertToBase(that.value)) <= 0.0001;
     }
-
-    public Temperature add(Temperature other) {
-        return create(temperatureUnit.covertToBase(value) + other.temperatureUnit.covertToBase(other.value), TemperatureUnit.CELSIUS);
-    }
 }
