@@ -22,4 +22,8 @@ public class LengthMeasurement {
         LengthMeasurement that = (LengthMeasurement) o;
         return Double.compare(value * lengthUnit.conversionFactor, that.value * that.lengthUnit.conversionFactor) == 0;
     }
+
+    public LengthMeasurement add(LengthMeasurement other) {
+        return create(value + other.value, lengthUnit);
+    }
 }

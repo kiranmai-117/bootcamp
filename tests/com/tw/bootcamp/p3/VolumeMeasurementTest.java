@@ -2,8 +2,7 @@ package com.tw.bootcamp.p3;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class VolumeMeasurementTest {
 
@@ -19,5 +18,10 @@ public class VolumeMeasurementTest {
         VolumeMeasurement m1 = VolumeMeasurement.create(1, VolumeUnit.GALLON);
         VolumeMeasurement m2 = VolumeMeasurement.create(4.89, VolumeUnit.LITER);
         assertNotEquals(m2, m1);
+    }
+
+    @Test
+    void shouldThrowErrorForInvalidMeasurement() {
+        assertThrows(InvalidMeasurementException.class, () -> VolumeMeasurement.create(-12, VolumeUnit.GALLON));
     }
 }

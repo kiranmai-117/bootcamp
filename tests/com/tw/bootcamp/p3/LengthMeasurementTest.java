@@ -55,6 +55,13 @@ class LengthMeasurementTest {
     }
 
     @Test
+    void shouldAddTwoLengthsOfSameUnit() {
+        LengthMeasurement m1 = LengthMeasurement.create(5, LengthUnit.INCH);
+        LengthMeasurement m2 = LengthMeasurement.create(5, LengthUnit.INCH);
+        assertEquals(LengthMeasurement.create(10, LengthUnit.INCH), m1.add(m2));
+    }
+
+    @Test
     void shouldThrowErrorForInvalidMeasurement() {
         assertThrows(InvalidMeasurementException.class, () -> LengthMeasurement.create(-12, LengthUnit.INCH));
     }
