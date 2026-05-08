@@ -8,7 +8,16 @@ public class UnitTest {
 
     @Test
     void shouldReturnConversionFactorForFeet() {
-        Unit feet = Unit.FEET;
-        assertEquals(30, feet.conversionFactor);
+        assertEquals(30, Unit.FEET.conversionFactor);
+    }
+
+    @Test
+    void shouldReturnConversionFactorForCentimeter() {
+        assertEquals(1, Unit.CENTIMETER.conversionFactor);
+    }
+
+    @Test
+    void shouldReturnConversionFactorForInch() {
+        assertEquals(2.5, Unit.INCH.conversionFactor);
     }
 }
