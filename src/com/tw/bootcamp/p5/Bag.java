@@ -16,9 +16,7 @@ public class Bag {
 
     public boolean add(Ball ball) {
         int ballCount = balls.getOrDefault(ball, 0);
-        if (isLimitReached(ball, ballCount)) {
-            return false;
-        }
+        if (isLimitReached(ball, ballCount)) return false;
 
         balls.put(ball, ballCount + 1);
         this.totalBallCount++;
@@ -26,6 +24,13 @@ public class Bag {
     }
 
     private boolean isLimitReached(Ball ball, int ballCount) {
-        return this.totalBallCount >= capacity || ball.isLimitReached(ballCount, balls.getOrDefault(Ball.GREEN, 0));
+        if (this.totalBallCount >= capacity) return false;
+
+        return switch (ball) {
+            case RED -> ballCount >= balls.getOrDefault(Ball.GREEN, 0) * 2;
+            case GREEN -> ballCount >= 3;
+            case BLUE -> ballCount >= 12;
+            case YELLOW -> ballCount >= totalBallCount * 0.4;
+        };
     }
 }

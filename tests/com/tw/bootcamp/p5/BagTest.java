@@ -70,4 +70,16 @@ public class BagTest {
         assertTrue(bag.add(Ball.GREEN));
         assertTrue(bag.add(Ball.RED));
     }
+
+    @Test
+    void shouldNotAddYellowIfItReached40PercentOfTotalBalls() {
+        Bag bag = new Bag();
+        assertFalse(bag.add(Ball.RED));
+        assertTrue(bag.add(Ball.GREEN));
+        assertTrue(bag.add(Ball.RED));
+        assertTrue(bag.add(Ball.YELLOW));
+        assertTrue(bag.add(Ball.YELLOW));
+        assertFalse(bag.add(Ball.YELLOW));
+        assertTrue(bag.add(Ball.BLUE));
+    }
 }
