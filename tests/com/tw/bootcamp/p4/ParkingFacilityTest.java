@@ -15,22 +15,22 @@ public class ParkingFacilityTest {
     @Test
     void shouldParkTheCarInTheParkingLot() {
         ParkingFacility parkingFacility = ParkingFacility.create(2, 3);
-        assertTrue(parkingFacility.park());
+        assertTrue(parkingFacility.park(0));
     }
 
 
     @Test
     void shouldParkTheCarInTheParkingLotEvenThoughFirstOneIsFull() {
         ParkingFacility parkingFacility = ParkingFacility.create(2, 1);
-        parkingFacility.park();
-        assertTrue(parkingFacility.park());
+        parkingFacility.park(0);
+        assertTrue(parkingFacility.park(1));
     }
 
     @Test
     void shouldNotParkTheCarInTheParkingLotWhenAllLotsAreFull() {
         ParkingFacility parkingFacility = ParkingFacility.create(2, 1);
-        parkingFacility.park();
-        parkingFacility.park();
-        assertFalse(parkingFacility.park());
+        parkingFacility.park(0);
+        parkingFacility.park(1);
+        assertFalse(parkingFacility.park(1));
     }
 }
