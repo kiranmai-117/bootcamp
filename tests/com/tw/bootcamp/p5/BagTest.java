@@ -1,8 +1,15 @@
 package com.tw.bootcamp.p5;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
+
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class BagTest {
     @Test
@@ -92,4 +99,6 @@ public class BagTest {
         bag.add(Ball.YELLOW);
         assertEquals("GREEN :1\nRED :1\nBLUE :2\nYELLOW :1\n\nTotal :5", bag.generateSummary());
     }
+
+
 }
