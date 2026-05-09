@@ -6,21 +6,22 @@ import java.util.Map;
 public class Bag {
     private final int capacity;
     private final Map<Ball, Integer> balls;
-    private int ballCount;
+    private int totalBallCount;
 
     public Bag() {
-        this.ballCount = 0;
+        this.totalBallCount = 0;
         this.capacity = 12;
         this.balls = new HashMap<>();
     }
 
     public boolean add(Ball ball) {
-        if (ballCount >= capacity) {
+        int ballCount = balls.getOrDefault(ball, 0);
+        if (this.totalBallCount >= capacity || ball.isLimitExceeds(ballCount)) {
             return false;
         }
 
-        balls.compute(ball, (k, val) -> val == null ? 1 : val + 1);
-        ballCount++;
+        balls.put(ball, ballCount + 1);
+        this.totalBallCount++;
         return true;
     }
 }

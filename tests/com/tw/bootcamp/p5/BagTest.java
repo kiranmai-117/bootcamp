@@ -16,8 +16,31 @@ public class BagTest {
     void shouldNotAddBallToTheBagIfItIsFull() {
         Bag bag = new Bag();
         for (int i = 0; i < 12; i++) {
+            bag.add(Ball.RED);
+        }
+        assertFalse(bag.add(Ball.RED));
+    }
+
+
+    @Test
+    void shouldNotAddMoreThanThreeGreenBallsToTheBag() {
+        Bag bag = new Bag();
+        for (int i = 0; i < 3; i++) {
             bag.add(Ball.GREEN);
         }
+
         assertFalse(bag.add(Ball.GREEN));
+    }
+
+    @Test
+    void shouldAddOtherBallsEvenThoughGreenBallCountIsThree() {
+        Bag bag = new Bag();
+        for (int i = 0; i < 3; i++) {
+            bag.add(Ball.GREEN);
+        }
+
+        assertTrue(bag.add(Ball.BLUE));
+        assertFalse(bag.add(Ball.GREEN));
+        assertTrue(bag.add(Ball.RED));
     }
 }
