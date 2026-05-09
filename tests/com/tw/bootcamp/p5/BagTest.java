@@ -58,7 +58,7 @@ public class BagTest {
     @Test
     void shouldNotAddRedBallIfThereIsNoGreenBall() {
         Bag bag = new Bag();
-        assertFalse(bag.add(Ball.RED))
+        assertFalse(bag.add(Ball.RED));
         assertTrue(bag.add(Ball.BLUE));
     }
 
