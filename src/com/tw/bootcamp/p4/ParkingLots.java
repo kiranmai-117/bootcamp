@@ -41,4 +41,11 @@ public class ParkingLots {
     public int hashCode() {
         return Objects.hashCode(parkingLots);
     }
+
+    @Override
+    public String toString() {
+        return "ParkingLots{" +
+                "parkingLots=" + parkingLots +
+                '}';
+    }
 }

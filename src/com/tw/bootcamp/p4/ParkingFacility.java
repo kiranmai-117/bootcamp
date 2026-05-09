@@ -33,4 +33,11 @@ public class ParkingFacility {
     public boolean park(int parkingLotNo) {
         return parkingLots.park(parkingLotNo);
     }
+
+    @Override
+    public String toString() {
+        return "ParkingFacility{" +
+                "parkingLots=" + parkingLots +
+                '}';
+    }
 }
