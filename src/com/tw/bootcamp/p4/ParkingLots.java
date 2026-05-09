@@ -13,5 +13,5 @@ public class ParkingLots extends ArrayList<ParkingLot> {
         return parkingLots;
     }
 
-    
+
 }

@@ -6,11 +6,13 @@ public class ParkingFacility {
     private final int noOfLots;
     private final int size;
     private final ParkingLots parkingLots;
+    private int currentParkingLotNo;
 
     private ParkingFacility(int noOfLots, int size, ParkingLots parkingLots) {
         this.noOfLots = noOfLots;
         this.parkingLots = parkingLots;
         this.size = size;
+        this.currentParkingLotNo = 0;
     }
 
     public static ParkingFacility create(int noOfLots, int size) {
@@ -28,5 +30,17 @@ public class ParkingFacility {
     @Override
     public int hashCode() {
         return Objects.hash(noOfLots, size, parkingLots);
+    }
+
+    public boolean park() {
+        if (currentParkingLotNo >= noOfLots) return false;
+
+        boolean hasParked = parkingLots.get(currentParkingLotNo).park();
+        if (!hasParked) {
+            currentParkingLotNo++;
+            return park();
+        }
+
+        return true;
     }
 }
