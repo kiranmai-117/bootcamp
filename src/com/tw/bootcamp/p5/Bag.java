@@ -1,6 +1,6 @@
 package com.tw.bootcamp.p5;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Bag {
@@ -11,7 +11,7 @@ public class Bag {
     public Bag() {
         this.totalBallCount = 0;
         this.capacity = 12;
-        this.balls = new HashMap<>();
+        this.balls = new LinkedHashMap<>();
     }
 
     public boolean add(Ball ball) {
@@ -32,5 +32,13 @@ public class Bag {
             case BLUE -> ballCount >= 12;
             case YELLOW -> ballCount >= totalBallCount * 0.4;
         };
+    }
+
+    @Override
+    public String toString() {
+        return "Bag{" +
+                "balls=" + balls +
+                ", totalBallCount=" + totalBallCount +
+                '}';
     }
 }
