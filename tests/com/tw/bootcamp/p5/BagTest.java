@@ -83,13 +83,13 @@ public class BagTest {
     }
 
     @Test
-    void shouldGiveSummary() {
+    void shouldGiveGenerateSummary() {
         Bag bag = new Bag();
         bag.add(Ball.GREEN);
         bag.add(Ball.RED);
         bag.add(Ball.BLUE);
         bag.add(Ball.BLUE);
         bag.add(Ball.YELLOW);
-        assertEquals("Bag{balls={GREEN=1, RED=1, BLUE=2, YELLOW=1}, totalBallCount=5}", bag.toString());
+        assertEquals("GREEN :1\nRED :1\nBLUE :2\nYELLOW :1\n\nTotal :5", bag.generateSummary());
     }
 }

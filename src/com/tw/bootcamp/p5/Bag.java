@@ -34,11 +34,11 @@ public class Bag {
         };
     }
 
-    @Override
-    public String toString() {
-        return "Bag{" +
-                "balls=" + balls +
-                ", totalBallCount=" + totalBallCount +
-                '}';
+    public String generateSummary() {
+        StringBuilder summary = new StringBuilder();
+
+        balls.forEach((ball, count) -> summary.append(ball).append(" :").append(count).append("\n"));
+        summary.append("\nTotal").append(" :").append(totalBallCount);
+        return summary.toString();
     }
 }
