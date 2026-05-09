@@ -43,4 +43,31 @@ public class BagTest {
         assertFalse(bag.add(Ball.GREEN));
         assertTrue(bag.add(Ball.RED));
     }
+
+
+    @Test
+    void shouldNotAddRedBallMoreThanTwiceCountOfGreenBall() {
+        Bag bag = new Bag();
+        bag.add(Ball.GREEN);
+        assertTrue(bag.add(Ball.RED));
+        assertTrue(bag.add(Ball.RED));
+        assertFalse(bag.add(Ball.RED));
+    }
+
+
+    @Test
+    void shouldNotAddRedBallIfThereIsNoGreenBall() {
+        Bag bag = new Bag();
+        assertFalse(bag.add(Ball.RED))
+        assertTrue(bag.add(Ball.BLUE));
+    }
+
+
+    @Test
+    void shouldAddRedBallIfGreenBallAddedInBetween() {
+        Bag bag = new Bag();
+        assertFalse(bag.add(Ball.RED));
+        assertTrue(bag.add(Ball.GREEN));
+        assertTrue(bag.add(Ball.RED));
+    }
 }

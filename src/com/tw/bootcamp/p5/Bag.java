@@ -16,12 +16,16 @@ public class Bag {
 
     public boolean add(Ball ball) {
         int ballCount = balls.getOrDefault(ball, 0);
-        if (this.totalBallCount >= capacity || ball.isLimitExceeds(ballCount)) {
+        if (isLimitReached(ball, ballCount)) {
             return false;
         }
 
         balls.put(ball, ballCount + 1);
         this.totalBallCount++;
         return true;
+    }
+
+    private boolean isLimitReached(Ball ball, int ballCount) {
+        return this.totalBallCount >= capacity || ball.isLimitReached(ballCount, balls.getOrDefault(Ball.GREEN, 0));
     }
 }
